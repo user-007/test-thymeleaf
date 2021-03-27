@@ -24,9 +24,19 @@ public class Product {
     LocalDateTime dateTime;
     @NotBlank
     private String category;
-
+    // one product can belong to many users
+    @ManyToOne
+    private User user;
     public String getUsername() {
         return username;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void setUsername(String username) {
@@ -71,5 +81,18 @@ public class Product {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price='" + price + '\'' +
+                ", dateTime=" + dateTime +
+                ", category='" + category + '\'' +
+                ", user=" + user +
+                '}';
     }
 }

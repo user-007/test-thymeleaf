@@ -16,7 +16,6 @@ public class UserViewModel {
         this.products = products;
         return this;
     }
-
     public List<ProductViewModel> getProducts() {
         return products;
     }

@@ -51,4 +51,16 @@ public class ProductViewModel {
         this.endYear = endYear;
     }
 
+    //overriding the to String method
+    @Override
+    public String toString() {
+        return "ProductViewModel{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", category=" + category +
+                ", startYear=" + startYear +
+                ", endYear=" + endYear +
+                '}';
+    }
 }
