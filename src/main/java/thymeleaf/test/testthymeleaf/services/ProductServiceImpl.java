@@ -2,12 +2,12 @@ package thymeleaf.test.testthymeleaf.services;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import thymeleaf.test.testthymeleaf.model.entities.Category;
 import thymeleaf.test.testthymeleaf.model.entities.Product;
 import thymeleaf.test.testthymeleaf.model.entities.User;
-import thymeleaf.test.testthymeleaf.model.views.archived.ProductViewModel;
 import thymeleaf.test.testthymeleaf.repositories.ProductRepository;
 import thymeleaf.test.testthymeleaf.repositories.UserRepository;
-import thymeleaf.test.testthymeleaf.model.views.archived.UserViewModel;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -26,36 +26,11 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void getAllProducts() {
-     List<ProductViewModel> products  = new ArrayList<>();
-     List<Product> products_list  = productRepository.findAll();
-    products_list.forEach(
-            //returning all products of the given user ;
-            el->{
-                User user  = el.getUser();
-                Optional<ProductViewModel> productViewModel  = findByName(products, user.getUsername());
-                if(!productViewModel.isPresent()){
-                    // not in the result then creating a new model
-                    ProductViewModel newProductViewModel  = new ProductViewModel();
-                    modelMapper.map(user, new ProductViewModel());
-                    products.add(newProductViewModel);
-                    //assigning the new object
-                    productViewModel = Optional.of(newProductViewModel);
-                }
-                 UserViewModel userViewModel = new UserViewModel();
-                 modelMapper.map(el,userViewModel);
-                productViewModel.get().addUser(userViewModel);
+        List<Category> categories = new ArrayList<>();
 
-            }
-
-
-    );
-
-
-    }
-    private static Optional<ProductViewModel> findByName(List<ProductViewModel> allModels, String name){
-        return allModels.
-                stream().
-                filter(m-> m.getName().equals(name)).
-                findAny();
+        List<Product> allProducts =  productRepository.findAll();
+        allProducts.forEach(me->{
+           // Category category  = m
+        });
     }
 }

@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String username;
+    private String id;
     @Size(min=3,max=20)
     private String name;
     @Min(5)
@@ -23,26 +23,8 @@ public class Product {
     @DateTimeFormat
     LocalDateTime dateTime;
     @NotBlank
-    private String category;
-    // one product can belong to many users
     @ManyToOne
-    private User user;
-    public String getUsername() {
-        return username;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
+    private Category category;
     public String getName() {
         return name;
     }
@@ -75,24 +57,15 @@ public class Product {
         this.dateTime = dateTime;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 
     @Override
     public String toString() {
         return "Product{" +
-                "username='" + username + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price='" + price + '\'' +
                 ", dateTime=" + dateTime +
-                ", category='" + category + '\'' +
-                ", user=" + user +
+                ", category=" + category +
                 '}';
     }
 }
