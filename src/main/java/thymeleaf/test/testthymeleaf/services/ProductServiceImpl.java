@@ -4,10 +4,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import thymeleaf.test.testthymeleaf.model.entities.Product;
 import thymeleaf.test.testthymeleaf.model.entities.User;
-import thymeleaf.test.testthymeleaf.model.views.ProductViewModel;
+import thymeleaf.test.testthymeleaf.model.views.archived.ProductViewModel;
 import thymeleaf.test.testthymeleaf.repositories.ProductRepository;
 import thymeleaf.test.testthymeleaf.repositories.UserRepository;
-
+import thymeleaf.test.testthymeleaf.model.views.archived.UserViewModel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -41,7 +41,13 @@ public class ProductServiceImpl implements ProductService {
                     //assigning the new object
                     productViewModel = Optional.of(newProductViewModel);
                 }
+                 UserViewModel userViewModel = new UserViewModel();
+                 modelMapper.map(el,userViewModel);
+                productViewModel.get().addUser(userViewModel);
+
             }
+
+
     );
 
 

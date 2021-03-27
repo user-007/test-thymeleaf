@@ -1,4 +1,4 @@
-package thymeleaf.test.testthymeleaf.model.views;
+package thymeleaf.test.testthymeleaf.model.views.archived;
 
 import java.util.ArrayList;
 import java.util.List;
