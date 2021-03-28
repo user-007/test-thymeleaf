@@ -2,7 +2,7 @@ package thymeleaf.test.testthymeleaf.model.views;
 
 import java.util.List;
 
-class CategoryViewModel{
+public class CategoryViewModel{
 private String name;
 private List<ProductViewModel> products;
 

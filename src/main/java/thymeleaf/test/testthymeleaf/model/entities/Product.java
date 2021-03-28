@@ -29,6 +29,10 @@ public class Product {
         return name;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -56,7 +60,6 @@ public class Product {
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
-
 
     @Override
     public String toString() {
