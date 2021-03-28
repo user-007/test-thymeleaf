@@ -20,7 +20,7 @@ public class ShopingUserDetailsService implements UserDetailsService {
         User user = userRepository
                 .findUserByUsername(username).
                         orElseThrow(() -> new UsernameNotFoundException("User with name " + username + " was not found!"));
-        //temporarily
+
         return null;
     }
     private UserDetails mapToUserDetails(User userEntity) {
