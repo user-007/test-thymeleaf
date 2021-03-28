@@ -2,9 +2,7 @@ package thymeleaf.test.testthymeleaf.model.entities;
 
 import org.thymeleaf.spring5.processor.SpringActionTagProcessor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.List;
 
@@ -20,13 +18,20 @@ public class User {
     @Email
     @NotBlank
     private String email;
-
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    private List<UserRoleEntity> userRoles;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<UserRoleEntity> userRoles;
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public List<UserRoleEntity> getUserRoles() {
+        return userRoles;
     }
 
     public String getUsername() {
